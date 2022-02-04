@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "filesystem.h"
+#include "login.h"
 #include <QDebug>
 
 
@@ -78,4 +79,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
+void MainWindow::on_loginbutton_clicked()
+{
+    Login loginWindow;
+    loginWindow.setModal(true);
+    loginWindow.exec();
+}
 
