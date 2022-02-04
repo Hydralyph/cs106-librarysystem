@@ -18,6 +18,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
@@ -32,6 +33,7 @@ public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QFrame *frame;
+    QPushButton *loginbutton;
     QGridLayout *gridLayout;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *horizontalSpacer;
@@ -69,6 +71,9 @@ public:
         frame->setStyleSheet(QString::fromUtf8("background-color: #373737;"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
+        loginbutton = new QPushButton(frame);
+        loginbutton->setObjectName(QString::fromUtf8("loginbutton"));
+        loginbutton->setGeometry(QRect(690, 30, 80, 31));
 
         verticalLayout->addWidget(frame);
 
@@ -161,6 +166,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        loginbutton->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
         groupBox->setTitle(QString());
         label->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
