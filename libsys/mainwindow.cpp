@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "filesystem.h"
 #include "login.h"
+#include "useraccountsystem.h"
 #include <QDebug>
 
 
@@ -23,32 +24,13 @@ MainWindow::MainWindow(QWidget *parent)
 //    scrollAlign->addLayout(ui->Entry_1);
 //    scrollAlign->addLayout(ui->Entry_2);
 
-
-
-    // QFILE DEBUG CODE
-//    qDebug() << "FILE EXISTS: " << FS::catalogueFile.exists();
-//    if (!FS::catalogueFile.open(QIODevice::ReadOnly | QIODevice::Text))
-//    {
-//        QMessageBox::information(this, tr("FIRST: Unable to open file"), FS::catalogueFile.errorString());
-//        return;
-//    } else
-//    {
-//        qDebug() << "FIRST: File Opened.";
-//        FS::catalogueFile.close();
-//    }
-
-//    QString applicationDirPath;
-//        applicationDirPath = QCoreApplication::applicationDirPath();
-//        qDebug()<<"applicationDirPath = "<<applicationDirPath;
-
-//            QString applicationFilePath;
-//            applicationFilePath = QCoreApplication::applicationFilePath();
-//            qDebug()<<"applicationFilePath = "<<applicationFilePath;
-
-//            QStringList bookData = FS::loadCatalogueData();
-//            qDebug() << bookData;
-
     QStringList bookData = FS::loadCatalogueData();
+
+    // BECOMES A NULL PIXMAP
+//    QPixmap img;
+//    img.load(QString(QCoreApplication::applicationDirPath() + bookData[7]));
+//    qDebug() << QCoreApplication::applicationDirPath();
+
 
 for (int i = 0; i < 10; i++) {
     QGridLayout *Template = new QGridLayout();
@@ -57,8 +39,11 @@ for (int i = 0; i < 10; i++) {
     QLabel *Author = new QLabel();
     QLabel *Desc = new QLabel();
 
+//    img = img.scaled(Image->size(), Qt::KeepAspectRatio);
+//    Image->setPixmap(img);
 
-    Image->setText(bookData[0]);
+
+
     Title->setText(bookData[1]);
     Author->setText(bookData[2]);
     Desc->setText("lol");
@@ -69,7 +54,12 @@ for (int i = 0; i < 10; i++) {
     Template->addWidget(Desc,2,1);
     scrollAlign->addLayout(Template);
 
+
 };
+
+User *user = new User();
+
+qDebug() << user->GetAccessLevel();
 
 
 }

@@ -89,16 +89,16 @@ QStringList FS::loadUserReservedData()
 // ======= USER FS FUNCTIONS ========
 
 /* USER STORAGE DATA STRUCTURE
- * USER_ID, USER_FIRSTNAME, USER_LASTNAME, USER_PASSWORD, USER_EMAIL, USER_PHONENUMBER, USER_PROFILEIMG, USER_ADMINFLAG
+ * USER_ID, USER_NAME, USER_PASSWORD, USER_EMAIL, USER_PHONENUMBER, USER_PROFILEIMG, USER_ADMINFLAG
  * Each of these will be seperated by double commas ",," to allow for compatability with the catalogue storage */
 
-void FS::AddUser(QString user_ID, QString user_FirstName, QString user_LastName, QString user_Password, QString user_Email, QString user_PhoneNum, QString user_AdminFlag)
+void FS::AddUser(QString user_ID, QString user_Name, QString user_Password, QString user_Email, QString user_PhoneNum, QString user_AdminFlag)
 {
     if(userFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
     {
         QTextStream out(&userFile);
         // NOTE: NEED TO RANDOMISE USERID
-        out << user_ID << ",," << user_FirstName << ",," << user_LastName << ",," << user_Password << ",," << user_Email << ",," << user_PhoneNum << ",," << user_AdminFlag << "\n";
+        out  << "\n" << user_ID << ",," << user_Name << ",," << user_Password << ",," << user_Email << ",," << user_PhoneNum << ",," << user_AdminFlag;
     }
     else
     {
@@ -112,7 +112,7 @@ void FS::ModifyUser(QStringList userData, QString userID)
 {
     if(userData.contains(userID)) // Check for the userID
     {
-        for(int i = 0; i < userData.length(); i += 7) // i + 7 should always equate to the User_ID field
+        for(int i = 0; i < userData.length(); i += 6) // i + 7 should always equate to the User_ID field
         {
             if(userData[i] == userID)
             {
@@ -126,10 +126,9 @@ void FS::ModifyUser(QStringList userData, QString userID)
         {
             QTextStream out(&userFile);
             // ADD OUTPUT OF USERDATA
-            for(int i = 0; i < userData.length(); i += 7)
+            for(int i = 0; i < userData.length(); i += 6)
             {
-                out << userData[i] << ",," << userData[i + 1] << ",," << userData[i + 2] << ",," << userData[i + 3] << ",," << userData[i + 4] << ",," << userData[i + 5] << ",," <<
-                       userData[i + 6] << "\n";
+                out << "\n" << userData[i] << ",," << userData[i + 1] << ",," << userData[i + 2] << ",," << userData[i + 3] << ",," << userData[i + 4] << ",," << userData[i + 5];
             }
         }
         else // If user file cannot be found show a message to warn the admin
@@ -149,7 +148,7 @@ void FS::DeleteUser(QStringList userData, QString userID)
 {
     if(userData.contains(userID))
     {
-        for(int i = 0; i < userData.length(); i += 7)
+        for(int i = 0; i < userData.length(); i += 6)
         {
             if(userData[i] == userID)
             {

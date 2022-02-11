@@ -12,12 +12,14 @@ SOURCES += \
     filesystem.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    useraccountsystem.cpp
 
 HEADERS += \
     filesystem.h \
     login.h \
-    mainwindow.h
+    mainwindow.h \
+    useraccountsystem.h
 
 FORMS += \
     login.ui \
