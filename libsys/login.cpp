@@ -1,5 +1,6 @@
 #include "login.h"
 #include "ui_login.h"
+#include "admin.h"
 #include <QMessageBox>
 
 Login::Login(QWidget *parent) :
@@ -7,6 +8,8 @@ Login::Login(QWidget *parent) :
     ui(new Ui::Login)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 }
 
 Login::~Login()
@@ -23,7 +26,14 @@ void Login::on_login_clicked()
         QMessageBox::information(this,"Login successful.","Logged in successfully.");
         this->close();
     }
-    else {
+    else if (username == "Admin" && password == "Admin") {
+        QMessageBox::information(this,"Login successful.","Logged in successfully.");
+        this->close();
+        admin adminWindow;
+        adminWindow.setModal(true);
+        adminWindow.exec();
+
+    } else {
         QMessageBox::warning(this,"Login unsuccessful.","Username and password are incorrect.");
     }
 

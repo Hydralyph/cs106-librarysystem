@@ -30,6 +30,7 @@ public:
     QLineEdit *userField;
     QLineEdit *passField;
     QPushButton *login;
+    QLabel *label_3;
 
     void setupUi(QDialog *Login)
     {
@@ -59,12 +60,19 @@ public:
 
         passField = new QLineEdit(gridLayoutWidget);
         passField->setObjectName(QString::fromUtf8("passField"));
+        passField->setEchoMode(QLineEdit::Password);
 
         gridLayout->addWidget(passField, 1, 1, 1, 1);
 
         login = new QPushButton(Login);
         login->setObjectName(QString::fromUtf8("login"));
         login->setGeometry(QRect(290, 240, 80, 21));
+        label_3 = new QLabel(Login);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(30, 20, 141, 51));
+        QFont font;
+        font.setPointSize(36);
+        label_3->setFont(font);
 
         retranslateUi(Login);
 
@@ -73,10 +81,11 @@ public:
 
     void retranslateUi(QDialog *Login)
     {
-        Login->setWindowTitle(QCoreApplication::translate("Login", "Dialog", nullptr));
+        Login->setWindowTitle(QCoreApplication::translate("Login", "Login", nullptr));
         label->setText(QCoreApplication::translate("Login", "Username", nullptr));
         label_2->setText(QCoreApplication::translate("Login", "Password", nullptr));
         login->setText(QCoreApplication::translate("Login", "Login", nullptr));
+        label_3->setText(QCoreApplication::translate("Login", "LOGIN", nullptr));
     } // retranslateUi
 
 };
