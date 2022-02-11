@@ -9,17 +9,26 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addmod_users.cpp \
+    admin.cpp \
+    bookdetails.cpp \
     filesystem.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    addmod_users.h \
+    admin.h \
+    bookdetails.h \
     filesystem.h \
     login.h \
     mainwindow.h
 
 FORMS += \
+    addmod_users.ui \
+    admin.ui \
+    bookdetails.ui \
     login.ui \
     mainwindow.ui
 

@@ -165,7 +165,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Library Information System", nullptr));
         loginbutton->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
         groupBox->setTitle(QString());
         label->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
