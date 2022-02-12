@@ -1,0 +1,12 @@
+debug/addmod_users.o
+debug/admin.o
+debug/bookdetails.o
+debug/filesystem.o
+debug/login.o
+debug/main.o
+debug/mainwindow.o
+debug/moc_addmod_users.o
+debug/moc_admin.o
+debug/moc_bookdetails.o
+debug/moc_login.o
+debug/moc_mainwindow.o

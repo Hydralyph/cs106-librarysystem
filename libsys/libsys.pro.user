@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 6.0.2, 2022-02-11T15:34:26. -->
+=======
+<!-- Written by QtCreator 5.0.3, 2022-02-07T11:48:26. -->
+>>>>>>> origin/dev
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -247,7 +251,11 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+<<<<<<< HEAD
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">E:/SCHOOL/Yoobee/Y1/CS106 Integrated Studio II/ResubGitshell/build_dir</value>
+=======
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/OEM/Desktop/106 fuck/cs106-librarysystem/build_dir</value>
+>>>>>>> origin/dev
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
