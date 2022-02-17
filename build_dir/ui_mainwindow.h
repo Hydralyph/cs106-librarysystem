@@ -34,19 +34,20 @@ public:
     QVBoxLayout *verticalLayout;
     QFrame *frame;
     QPushButton *loginbutton;
+    QLabel *label_2;
     QGridLayout *gridLayout;
     QSpacerItem *horizontalSpacer_2;
-    QSpacerItem *horizontalSpacer;
-    QGroupBox *groupBox;
-    QVBoxLayout *verticalLayout_3;
-    QLabel *label;
-    QComboBox *comboBox;
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *verticalSpacer;
+    QSpacerItem *horizontalSpacer;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_4;
     QVBoxLayout *verticalLayout_2;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *label;
+    QComboBox *comboBox;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -57,15 +58,20 @@ public:
         MainWindow->resize(822, 618);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
+        centralwidget->setSizePolicy(sizePolicy);
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         frame = new QFrame(centralwidget);
         frame->setObjectName(QString::fromUtf8("frame"));
-        QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Maximum);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(frame->sizePolicy().hasHeightForWidth());
-        frame->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(frame->sizePolicy().hasHeightForWidth());
+        frame->setSizePolicy(sizePolicy1);
         frame->setMinimumSize(QSize(0, 90));
         frame->setBaseSize(QSize(0, 68));
         frame->setStyleSheet(QString::fromUtf8("background-color: #373737;"));
@@ -74,6 +80,16 @@ public:
         loginbutton = new QPushButton(frame);
         loginbutton->setObjectName(QString::fromUtf8("loginbutton"));
         loginbutton->setGeometry(QRect(690, 30, 80, 31));
+        loginbutton->setStyleSheet(QString::fromUtf8("background-color: rgb(100, 100, 100);\n"
+"color: rgb(255, 255, 255);"));
+        label_2 = new QLabel(frame);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(40, 32, 281, 21));
+        QFont font;
+        font.setPointSize(16);
+        label_2->setFont(font);
+        label_2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
+""));
 
         verticalLayout->addWidget(frame);
 
@@ -84,41 +100,6 @@ public:
 
         gridLayout->addItem(horizontalSpacer_2, 1, 0, 1, 1);
 
-        horizontalSpacer = new QSpacerItem(90, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer, 1, 2, 1, 1);
-
-        groupBox = new QGroupBox(centralwidget);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Maximum);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
-        groupBox->setSizePolicy(sizePolicy1);
-        groupBox->setMinimumSize(QSize(160, 106));
-        groupBox->setStyleSheet(QString::fromUtf8("QGroupBox{background-color: gray}"));
-        verticalLayout_3 = new QVBoxLayout(groupBox);
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        label = new QLabel(groupBox);
-        label->setObjectName(QString::fromUtf8("label"));
-        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Maximum);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy2);
-        label->setMinimumSize(QSize(0, 46));
-        label->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_3->addWidget(label);
-
-        comboBox = new QComboBox(groupBox);
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-
-        verticalLayout_3->addWidget(comboBox);
-
-
-        gridLayout->addWidget(groupBox, 1, 1, 1, 1);
-
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         gridLayout->addItem(verticalSpacer_2, 0, 2, 1, 1);
@@ -126,6 +107,10 @@ public:
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Preferred);
 
         gridLayout->addItem(verticalSpacer, 2, 1, 2, 1);
+
+        horizontalSpacer = new QSpacerItem(90, 20, QSizePolicy::Maximum, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 1, 2, 1, 1);
 
         scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
@@ -144,7 +129,41 @@ public:
 
         scrollArea->setWidget(scrollAreaWidgetContents);
 
-        gridLayout->addWidget(scrollArea, 1, 3, 1, 1);
+        gridLayout->addWidget(scrollArea, 1, 4, 1, 1);
+
+        groupBox = new QGroupBox(centralwidget);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Maximum);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
+        groupBox->setSizePolicy(sizePolicy2);
+        groupBox->setMinimumSize(QSize(160, 106));
+        groupBox->setStyleSheet(QString::fromUtf8("QGroupBox{background-color: gray}"));
+        verticalLayout_3 = new QVBoxLayout(groupBox);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        label = new QLabel(groupBox);
+        label->setObjectName(QString::fromUtf8("label"));
+        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Maximum);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy3);
+        label->setMinimumSize(QSize(0, 46));
+        QFont font1;
+        font1.setPointSize(12);
+        label->setFont(font1);
+        label->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_3->addWidget(label);
+
+        comboBox = new QComboBox(groupBox);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+
+        verticalLayout_3->addWidget(comboBox);
+
+
+        gridLayout->addWidget(groupBox, 1, 1, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
@@ -167,8 +186,9 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Library Information System", nullptr));
         loginbutton->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Library Information System", nullptr));
         groupBox->setTitle(QString());
-        label->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "FILTER", nullptr));
     } // retranslateUi
 
 };

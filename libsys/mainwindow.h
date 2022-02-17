@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "login.h"
 
 
 
@@ -17,11 +18,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+
 
 private slots:
     void on_loginbutton_clicked();
+    void on_login(int nomVal);
+
 
 private:
     Ui::MainWindow *ui;
+    int nomValue;
 };
 #endif // MAINWINDOW_H
