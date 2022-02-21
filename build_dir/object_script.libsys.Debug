@@ -1,6 +1,7 @@
 debug/addmod_users.o
 debug/admin.o
 debug/bookdetails.o
+debug/booksystem.o
 debug/filesystem.o
 debug/login.o
 debug/main.o

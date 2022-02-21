@@ -1,6 +1,7 @@
 release/addmod_users.o
 release/admin.o
 release/bookdetails.o
+release/booksystem.o
 release/filesystem.o
 release/login.o
 release/main.o
