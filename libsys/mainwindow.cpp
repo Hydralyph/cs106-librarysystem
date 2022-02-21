@@ -3,8 +3,13 @@
 #include "filesystem.h"
 #include "login.h"
 #include "useraccountsystem.h"
+#include "booksystem.h"
 #include <QDebug>
+<<<<<<< HEAD
 #include <QMessageBox>
+=======
+#include <QVector>
+>>>>>>> 8cda97d63bd6cee6fcee50793252c5bf7642aeca
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -30,42 +35,61 @@ MainWindow::MainWindow(QWidget *parent)
 //    scrollAlign->addLayout(ui->Entry_1);
 //    scrollAlign->addLayout(ui->Entry_2);
 
-    QStringList bookData = FS::loadCatalogueData();
+//    QStringList bookData = FS::loadCatalogueData();
 
     // BECOMES A NULL PIXMAP
 //    QPixmap img;
 //    img.load(QString(QCoreApplication::applicationDirPath() + bookData[7]));
 //    qDebug() << QCoreApplication::applicationDirPath();
 
+    QVector<Book*> BookVec;
 
-for (int i = 0; i < 10; i++) {
+for (int i = 0; i < 30; i++) {
     QGridLayout *Template = new QGridLayout();
     QLabel *Image = new QLabel();
     QLabel *Title = new QLabel();
     QLabel *Author = new QLabel();
+    QLabel *ISBN = new QLabel();
     QLabel *Desc = new QLabel();
+    QFrame *line = new QFrame();
 
 //    img = img.scaled(Image->size(), Qt::KeepAspectRatio);
 //    Image->setPixmap(img);
 
 
 
-    Title->setText(bookData[1]);
-    Author->setText(bookData[2]);
+    Book *book = new Book();
+    book->SetTitle("Title");
+    book->SetAuthor("Author");
+    book->SetISBN("1222343");
+    book->SetGenre1("Horror");
+    book->SetGenre2("Mystery");
+    book->SetIsAvailable(true);
+    BookVec.push_back(book);
+
+
+    Title->setText(BookVec.at(i)->GetTitle());
+    Author->setText(BookVec.at(i)->GetAuthor());
+    ISBN->setText(BookVec.at(i)->GetISBN());
     Desc->setText("lol");
+
+    line->setFrameShape(QFrame::HLine);
+    line->setFrameShadow(QFrame::Sunken);
 
     Template->addWidget(Image,0,0);
     Template->addWidget(Title,0,1);
     Template->addWidget(Author,1,1);
-    Template->addWidget(Desc,2,1);
+    Template->addWidget(ISBN, 2,1);
+    Template->addWidget(Desc,3,1);
+    Template->addWidget(line, 4,1);
     scrollAlign->addLayout(Template);
 
 
 };
 
-User *user = new User();
 
-qDebug() << user->GetAccessLevel();
+
+
 
 
 }
