@@ -15,6 +15,9 @@ public:
     explicit bookdetails(QWidget *parent = nullptr);
     ~bookdetails();
 
+private slots:
+    void on_checkBox_stateChanged(int arg1);
+
 private:
     Ui::bookdetails *ui;
 };

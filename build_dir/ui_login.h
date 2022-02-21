@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -30,6 +31,7 @@ public:
     QLineEdit *userField;
     QLineEdit *passField;
     QPushButton *login;
+    QFrame *header;
     QLabel *label_3;
 
     void setupUi(QDialog *Login)
@@ -67,12 +69,22 @@ public:
         login = new QPushButton(Login);
         login->setObjectName(QString::fromUtf8("login"));
         login->setGeometry(QRect(290, 240, 80, 21));
-        label_3 = new QLabel(Login);
+        header = new QFrame(Login);
+        header->setObjectName(QString::fromUtf8("header"));
+        header->setGeometry(QRect(0, 0, 401, 80));
+        header->setStyleSheet(QString::fromUtf8("background-color: #373737;"));
+        header->setFrameShape(QFrame::StyledPanel);
+        header->setFrameShadow(QFrame::Raised);
+        label_3 = new QLabel(header);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(30, 20, 141, 51));
+        label_3->setGeometry(QRect(30, 0, 141, 81));
         QFont font;
-        font.setPointSize(36);
+        font.setPointSize(22);
         label_3->setFont(font);
+        label_3->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255)"));
+        header->raise();
+        gridLayoutWidget->raise();
+        login->raise();
 
         retranslateUi(Login);
 

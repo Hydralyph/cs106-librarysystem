@@ -4,6 +4,7 @@
 #include "login.h"
 #include "useraccountsystem.h"
 #include <QDebug>
+#include <QMessageBox>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -12,7 +13,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     FS::SetFilenameOnStartup();
     ui->setupUi(this);
+    logged = false;
+    lw = new Login();
+    connect(lw, SIGNAL(login_button(bool)), this, SLOT(on_login(bool)));
 
+
+    this->setFixedSize(this->width(), this->height());
 
     QScrollArea *scrollField = ui->scrollArea;
     QVBoxLayout *scrollAlign = new QVBoxLayout();
@@ -64,6 +70,12 @@ qDebug() << user->GetAccessLevel();
 
 }
 
+void MainWindow::on_login(bool log) {
+    logged = log;
+    qDebug() << logged;
+    ui->loginbutton->setText(QString("Logout"));
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -73,9 +85,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_loginbutton_clicked()
 {
-    Login loginWindow;
-    loginWindow.setModal(true);
-    loginWindow.exec();
+    if (logged) {
+        QMessageBox::warning(this,"Warning.","This action will log you out.");
+    } else {
+        Login loginWindow(this);
+        loginWindow.setModal(true);
+        loginWindow.exec();
+        connect(lw, SIGNAL(login_button(bool)), this, SLOT(on_login(bool)));
+        qDebug() << SLOT(on_login(bool));
+    }
+
 }
+
 
 

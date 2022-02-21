@@ -14,6 +14,7 @@
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -35,6 +36,8 @@ public:
     QLabel *label_3;
     QLabel *label;
     QCheckBox *checkBox;
+    QFrame *frame;
+    QLabel *label_5;
 
     void setupUi(QDialog *bookdetails)
     {
@@ -43,7 +46,7 @@ public:
         bookdetails->resize(732, 514);
         gridLayoutWidget = new QWidget(bookdetails);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(240, 80, 391, 341));
+        gridLayoutWidget->setGeometry(QRect(170, 110, 391, 341));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -109,6 +112,19 @@ public:
 
         gridLayout->addWidget(checkBox, 5, 0, 1, 1);
 
+        frame = new QFrame(bookdetails);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(-10, -21, 751, 101));
+        frame->setStyleSheet(QString::fromUtf8("background-color: #373737;"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        label_5 = new QLabel(frame);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(40, 40, 291, 41));
+        QFont font;
+        font.setPointSize(16);
+        label_5->setFont(font);
+        label_5->setStyleSheet(QString::fromUtf8("color: rgb(255,255,255);"));
 
         retranslateUi(bookdetails);
 
@@ -142,6 +158,7 @@ public:
         label_3->setText(QCoreApplication::translate("bookdetails", "Genre 1", nullptr));
         label->setText(QCoreApplication::translate("bookdetails", "Title", nullptr));
         checkBox->setText(QCoreApplication::translate("bookdetails", "Available?", nullptr));
+        label_5->setText(QCoreApplication::translate("bookdetails", "Modify Book", nullptr));
     } // retranslateUi
 
 };
